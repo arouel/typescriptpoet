@@ -149,7 +149,6 @@ private constructor(
 
     fun addProperty(propertySpec: PropertySpec) = apply {
       require(propertySpec.decorators.isEmpty()) { "Interface properties cannot have decorators" }
-      require(propertySpec.initializer == null) { "Interface properties cannot have initializers" }
       propertySpecs += propertySpec
     }
 
