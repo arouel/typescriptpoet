@@ -270,6 +270,7 @@ sealed class TypeName {
     @JvmField val WEAK_SET = implicit("WeakSet")
     @JvmField val MAP = implicit("Map")
     @JvmField val WEAK_MAP = implicit("WeakMap")
+    @JvmField val RECORD = implicit("Record")
 
     @JvmField val ARRAY = implicit("Array")
     @JvmField val INT8_ARRAY = implicit("Int8Array")
@@ -371,6 +372,20 @@ sealed class TypeName {
     fun mapType(keyType: TypeName, valueType: TypeName): TypeName {
       return parameterizedType(
         MAP, keyType, valueType
+      )
+    }
+
+    /**
+     * Type name for the generic Record type
+     *
+     * @param keyType Key type of the record
+     * @param valueType Value type of the record
+     * @return Type name of the new record type
+     */
+    @JvmStatic
+    fun recordType(keyType: TypeName, valueType: TypeName): TypeName {
+      return parameterizedType(
+        RECORD, keyType, valueType
       )
     }
 
